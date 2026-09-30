@@ -1,0 +1,4 @@
+# Tests are CPU-only and never import vllm/torch. aiohttp is needed because
+# src/handler.py imports it at module load (the proxy code is not exercised).
+pytest>=8,<10
+aiohttp
