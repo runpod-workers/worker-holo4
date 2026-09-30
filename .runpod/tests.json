@@ -1,0 +1,55 @@
+{
+  "tests": [
+    {
+      "name": "smoke_chat",
+      "input": {
+        "openai_route": "/v1/chat/completions",
+        "openai_input": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply with the single word: ready"
+            }
+          ],
+          "max_tokens": 64
+        }
+      },
+      "timeout": 600000
+    }
+  ],
+  "config": {
+    "gpuTypeId": "RTX 6000 Ada",
+    "gpuCount": 1,
+    "env": [
+      {
+        "key": "GPU_MEMORY_UTILIZATION",
+        "value": "0.90"
+      },
+      {
+        "key": "MAX_CONCURRENCY",
+        "value": "30"
+      },
+      {
+        "key": "MAX_MODEL_LEN",
+        "value": "8192"
+      },
+      {
+        "key": "MODEL_NAME",
+        "value": "Hcompany/Holo4-35B-A3B"
+      },
+      {
+        "key": "QUANTIZATION",
+        "value": "fp8"
+      },
+      {
+        "key": "TENSOR_PARALLEL_SIZE",
+        "value": "1"
+      }
+    ],
+    "allowedCudaVersions": [
+      "13.0",
+      "13.1",
+      "13.2"
+    ]
+  }
+}

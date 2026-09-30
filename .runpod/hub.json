@@ -1,0 +1,99 @@
+{
+  "title": "Holo4 (Holo4-27B-GGUF, Holo4-35B-A3B-GGUF)",
+  "description": "Serve Holo4 (Holo4-27B-GGUF, Holo4-35B-A3B-GGUF) on Runpod Serverless with vLLM. Computer use agents are a fast growing self-host workload, and teams want them on their own GPUs for privacy and cost control over long screenshot-heavy loops. Two sizes cover different rentals: the 27B dense fits a single 48GB to 80GB card, while the 35B-A3B MoE runs cheap per token and scales well for parallel agent sessions. GGUF weights mean day-one llama.cpp and Ollama deploys with the hai-agents harness on Runpod.",
+  "type": "serverless",
+  "category": "image",
+  "iconUrl": "https://www.runpod.io/favicon.ico",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 101,
+    "gpuIds": "ADA_48_PRO",
+    "gpuCount": 1,
+    "allowedCudaVersions": [
+      "13.0",
+      "13.1",
+      "13.2"
+    ],
+    "presets": [
+      {
+        "name": "1x RTX 6000 Ada fp8",
+        "defaults": {
+          "MODEL_NAME": "Hcompany/Holo4-35B-A3B",
+          "MAX_MODEL_LEN": "8192",
+          "TENSOR_PARALLEL_SIZE": "1",
+          "GPU_MEMORY_UTILIZATION": "0.90",
+          "MAX_CONCURRENCY": "30",
+          "QUANTIZATION": "fp8"
+        }
+      }
+    ],
+    "env": [
+      {
+        "key": "GPU_MEMORY_UTILIZATION",
+        "input": {
+          "name": "Gpu Memory Utilization",
+          "type": "string",
+          "description": "Fraction of VRAM vLLM may claim",
+          "default": "0.90",
+          "required": false,
+          "advanced": true
+        }
+      },
+      {
+        "key": "MAX_CONCURRENCY",
+        "input": {
+          "name": "Max Concurrency",
+          "type": "string",
+          "description": "Concurrent requests one worker accepts",
+          "default": "30",
+          "required": false,
+          "advanced": true
+        }
+      },
+      {
+        "key": "MAX_MODEL_LEN",
+        "input": {
+          "name": "Max Model Len",
+          "type": "string",
+          "description": "Maximum context length the worker advertises",
+          "default": "8192",
+          "required": false,
+          "advanced": false
+        }
+      },
+      {
+        "key": "MODEL_NAME",
+        "input": {
+          "name": "Model Name",
+          "type": "string",
+          "description": "Hugging Face repo id of the weights to serve",
+          "default": "Hcompany/Holo4-35B-A3B",
+          "required": true,
+          "advanced": false
+        }
+      },
+      {
+        "key": "QUANTIZATION",
+        "input": {
+          "name": "Quantization",
+          "type": "string",
+          "description": "Weight quantization vLLM should load",
+          "default": "fp8",
+          "required": false,
+          "advanced": false
+        }
+      },
+      {
+        "key": "TENSOR_PARALLEL_SIZE",
+        "input": {
+          "name": "Tensor Parallel Size",
+          "type": "string",
+          "description": "Number of GPUs to shard the model across",
+          "default": "1",
+          "required": false,
+          "advanced": false
+        }
+      }
+    ]
+  }
+}
