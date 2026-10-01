@@ -1,5 +1,7 @@
 # Holo4 (Holo4-27B-GGUF, Holo4-35B-A3B-GGUF) on Runpod Serverless
 
+[![Runpod](https://api.runpod.io/badge/runpod-workers/worker-holo4)](https://console.runpod.io/hub/runpod-workers/worker-holo4)
+
 Serve Holo4 (Holo4-27B-GGUF, Holo4-35B-A3B-GGUF) (H Company) on Runpod Serverless with vLLM.
 License: apache-2.0.
 
