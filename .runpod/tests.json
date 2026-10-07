@@ -18,7 +18,7 @@
     }
   ],
   "config": {
-    "gpuTypeId": "RTX 6000 Ada",
+    "gpuTypeId": "NVIDIA RTX 6000 Ada Generation",
     "gpuCount": 1,
     "env": [
       {
