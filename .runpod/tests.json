@@ -34,6 +34,10 @@
         "value": "8192"
       },
       {
+        "key": "MAX_NUM_SEQS",
+        "value": "32"
+      },
+      {
         "key": "MODEL_NAME",
         "value": "Hcompany/Holo4-35B-A3B"
       },
