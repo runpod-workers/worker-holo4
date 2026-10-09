@@ -1,6 +1,6 @@
 {
-  "title": "Holo4 (Holo4-27B-GGUF, Holo4-35B-A3B-GGUF)",
-  "description": "Serve Holo4 (Holo4-27B-GGUF, Holo4-35B-A3B-GGUF) on Runpod Serverless with vLLM. Computer use agents are a fast growing self-host workload, and teams want them on their own GPUs for privacy and cost control over long screenshot-heavy loops. Two sizes cover different rentals: the 27B dense fits a single 48GB to 80GB card, while the 35B-A3B MoE runs cheap per token and scales well for parallel agent sessions. GGUF weights mean day-one llama.cpp and Ollama deploys with the hai-agents harness on Runpod.",
+  "title": "Holo4-35B-A3B",
+  "description": "Serve Holo4-35B-A3B (H Company) on Runpod Serverless with vLLM.",
   "type": "serverless",
   "category": "image",
   "iconUrl": "https://www.runpod.io/favicon.ico",
